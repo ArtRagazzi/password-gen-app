@@ -4,18 +4,18 @@ import { StyleSheet, Text, View, Image, TouchableOpacity, Pressable } from 'reac
 
 
 
-export function ModalPassword(){
+export function ModalPassword({password, handleClose}){
 
     return(
         <View style={styles.container}>
             <View style={styles.content}>
                 <Text style={styles.title}>Senha Gerada</Text>
                 <Pressable style={styles.innerPassword}>
-                    <Text style={styles.text}>123123</Text>
+                    <Text style={styles.text}>{password}</Text>
                 </Pressable>
 
                 <View style={styles.buttonArea}>
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity style={styles.button} onPress={handleClose}>
                         <Text style={styles.buttonText}>Voltar</Text>
                     </TouchableOpacity>
                     <TouchableOpacity style={[styles.button, styles.buttonSave]}>
@@ -75,7 +75,20 @@ const styles = StyleSheet.create({
         flex:1,
         alignItems:"center",
         marginTop:14,
-        marginBottom:14
+        marginBottom:14,
+        padding:8
+    },
+    buttonSave:{
+        backgroundColor:"#FF8900",
+        borderRadius:8  
+    },
+    buttonSaveText:{
+        color:"#FFF",
+        fontWeight:"bold"
+    },
+    buttonText:{
+        fontWeight:"bold",
+        color:"#6B6D70"
     }
 
 
